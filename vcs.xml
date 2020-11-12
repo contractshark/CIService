@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tree>
+  <directory name=".">
+    <file name="README.md" size="1454"></file>
+    <directory name="api" size="96">
+      <file name="api.go" size="4089"></file>
+    </directory>
+    <directory name="cli" size="96">
+      <file name="cli.go" size="523"></file>
+    </directory>
+    <directory name="cov" size="160">
+      <file name="clover.go" size="1230"></file>
+      <file name="clover_test.go" size="422"></file>
+      <directory name="testdata" size="96">
+        <file name="clover.xml" size="3322"></file>
+      </directory>
+    </directory>
+    <file name="go.mod" size="189"></file>
+    <file name="go.sum" size="916"></file>
+    <directory name="golang" size="96">
+      <file name="golang.go" size="2252"></file>
+    </directory>
+    <directory name="javascript" size="288">
+      <file name="coverage.go" size="1542"></file>
+      <file name="dependencies.go" size="619"></file>
+      <file name="install.go" size="174"></file>
+      <file name="javascript.go" size="1390"></file>
+      <file name="lighthouse.go" size="2540"></file>
+      <file name="size.go" size="559"></file>
+      <file name="time.go" size="613"></file>
+    </directory>
+    <directory name="language" size="160">
+      <file name="language.go" size="550"></file>
+      <file name="language_test.go" size="590"></file>
+      <directory name="testdata" size="128">
+        <directory name="go" size="96">
+          <file name="go.mod" size="0"></file>
+        </directory>
+        <directory name="javascript" size="96">
+          <file name="package.json" size="0"></file>
+        </directory>
+      </directory>
+    </directory>
+    <directory name="lighthouse" size="160">
+      <file name="lighthouse.go" size="1206"></file>
+      <file name="lighthouse_test.go" size="741"></file>
+      <directory name="testdata" size="96">
+        <file name="lighthouse.json" size="271830"></file>
+      </directory>
+    </directory>
+    <file name="main.go" size="1086"></file>
+    <file name="repo_state" size="1469"></file>
+    <directory name="size" size="160">
+      <file name="size.go" size="396"></file>
+      <file name="size_test.go" size="195"></file>
+      <directory name="testdata" size="96">
+        <file name="file" size="125952"></file>
+      </directory>
+    </directory>
+    <file name="vcs.xml" size="0"></file>
+  </directory>
+  <report>
+    <directories>14</directories>
+    <files>29</files>
+  </report>
+</tree>

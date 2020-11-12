@@ -1,0 +1,39 @@
+name: test
+
+on: [push]
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: set up go
+        uses: actions/setup-go@v1
+        with:
+          go-version: 1.13
+
+      - name: check out
+        uses: actions/checkout@v1
+
+      - name: vet
+        run: go vet ./...
+
+      - name: lint
+        run: |
+          export PATH=$PATH:$(go env GOPATH)/bin
+          go get golang.org/x/lint/golint
+          golint -set_exit_status ./...
+
+      - name: staticcheck
+        run: |
+          export PATH=$PATH:$(go env GOPATH)/bin
+          go get honnef.co/go/tools/cmd/staticcheck
+          staticcheck ./...
+
+      - name: test
+        run: go test -race -v ./...
+
+      - name: vypie
+        run: go run main.go
+        env:
+          SERIESCI_TOKEN: ${{ secrets.SERIESCI_TOKEN }}
