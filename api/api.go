@@ -17,28 +17,28 @@ import (
 
 // series names
 const (
-	SeriesCoverage      = "coverage"
-	SeriesFileSize      = "size"
-	SeriesTime          = "time"
-	SeriesBundleSize    = "bundlesize"
-	SeriesDependencies  = "dependencies"
-	SeriesPerformance   = "performance"
-	SeriesAccessibility = "accessibility"
-	SeriesPractices     = "practices"
-	SeriesSEO           = "seo"
+	ContractCoverage      = "coverage"
+	ContractFileSize      = "size"
+	ContractTime          = "time"
+	ContractBundleSize    = "bundlesize"
+	ContractDependencies  = "dependencies"
+	ContractPerformance   = "performance"
+	ContractLint          = "lint conformnace"
+	ContractPractices     = "practices"
+	ContractKPI           = "kpi"
 )
 
 // Descriptions returns the description for a given series name.
 var Descriptions = map[string]string{
-	SeriesCoverage:      "Code coverage",
-	SeriesFileSize:      "File size",
-	SeriesTime:          "Build time",
-	SeriesBundleSize:    "Bundle size",
-	SeriesDependencies:  "Number of dependencies",
-	SeriesPerformance:   "Lighthouse performance",
-	SeriesAccessibility: "Lighthouse accessibility",
-	SeriesPractices:     "Lighthouse best practices",
-	SeriesSEO:           "Lighthouse SEO",
+	ContractCoverage:      "Code coverage",
+	ContractFileSize:      "File size",
+	ContractTime:          "Build time",
+	ContractBundleSize:    "Bundle size",
+	ContractDependencies:  "Number of dependencies",
+	ContractPerformance:   "CShark performance",
+	ContractLint:          "CShark conformance ",
+	ContractPractices:     "CShark best practices",
+	ContractKPI:           "CShark KPI",
 }
 
 // get sha depending on ci environment.
@@ -138,17 +138,17 @@ func Post(value, series string) error {
 	return nil
 }
 
-// CreateSeriesRequest request
-type CreateSeriesRequest struct {
+// CreateContractRequest request
+type CreateContractRequest struct {
 	Name        string `json:"name"`
 	Description string `json:"description"`
 }
 
-// CreateSeries creates a new series.
-func CreateSeries(series string) error {
+// CreateContract creates a new series.
+func CreateContract(series string) error {
 
 	// create custom request
-	data := CreateSeriesRequest{
+	data := CreateContractRequest{
 		Name:        series,
 		Description: Descriptions[series],
 	}
