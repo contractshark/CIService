@@ -4,8 +4,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/contractshark/vypie/api"
-	"github.com/contractshark/vypie/cli"
+	"github.com/contractshark/shark/api"
+	"github.com/contractshark/shark/cli"
 )
 
 func dependencies(packageJSON map[string]interface{}) error {
@@ -16,12 +16,12 @@ func dependencies(packageJSON map[string]interface{}) error {
 
 	cli.Checkf("%s dependencies found\n", cli.Blue(len(dependencies)))
 
-	// create series
-	if err := api.CreateSeries(api.SeriesDependencies); err != nil {
+	// create shark
+	if err := api.CreateShark(api.SharkDependencies); err != nil {
 		return err
 	}
 
-	if err := api.Post(fmt.Sprintf("%d", len(dependencies)), api.SeriesDependencies); err != nil {
+	if err := api.Post(fmt.Sprintf("%d", len(dependencies)), api.SharkDependencies); err != nil {
 		return err
 	}
 

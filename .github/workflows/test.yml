@@ -33,7 +33,7 @@ jobs:
       - name: test
         run: go test -race -v ./...
 
-      - name: vypie
+      - name: shark
         run: go run main.go
         env:
           SERIESCI_TOKEN: ${{ secrets.SERIESCI_TOKEN }}

@@ -5,8 +5,8 @@ import (
 	"os/exec"
 	"time"
 
-	"github.com/contractshark/vypie/api"
-	"github.com/contractshark/vypie/cli"
+	"github.com/contractshark/shark/api"
+	"github.com/contractshark/shark/cli"
 )
 
 func duration() error {
@@ -23,13 +23,13 @@ func duration() error {
 
 	cli.Checkf("build took %s\n", cli.Blue(elapsed))
 
-	// create series
-	if err := api.CreateSeries(api.SeriesTime); err != nil {
+	// create shark
+	if err := api.CreateShark(api.SharkTime); err != nil {
 		return err
 	}
 
 	// post value
-	if err := api.Post(elapsed.String(), api.SeriesTime); err != nil {
+	if err := api.Post(elapsed.String(), api.SharkTime); err != nil {
 		return err
 	}
 

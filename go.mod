@@ -1,4 +1,4 @@
-module github.com/contractshark/vypie
+module github.com/contractshark/shark
 
 go 1.13
 

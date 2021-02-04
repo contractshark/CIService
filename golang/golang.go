@@ -7,8 +7,8 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/contractshark/vypie/api"
-	"github.com/contractshark/vypie/cli"
+	"github.com/contractshark/shark/api"
+	"github.com/contractshark/shark/cli"
 )
 
 // Run runs all Go related stuff.
@@ -70,12 +70,12 @@ func Run() error {
 
 	cli.Checkln("total coverage (statements) is", cli.Blue(total))
 
-	// create series
-	if err := api.CreateSeries(api.SeriesCoverage); err != nil {
+	// create shark
+	if err := api.CreateShark(api.SharkCoverage); err != nil {
 		return err
 	}
 
-	if err := api.Post(total, api.SeriesCoverage); err != nil {
+	if err := api.Post(total, api.SharkCoverage); err != nil {
 		return err
 	}
 
@@ -102,12 +102,12 @@ func Run() error {
 	size := fmt.Sprintf("%.2fMB", float64(info.Size())/1000/1000)
 	cli.Checkln("binary file size is", cli.Blue(size))
 
-	// create series
-	if err := api.CreateSeries(api.SeriesFileSize); err != nil {
+	// create shark
+	if err := api.CreateShark(api.SharkFileSize); err != nil {
 		return err
 	}
 
-	if err := api.Post(size, api.SeriesFileSize); err != nil {
+	if err := api.Post(size, api.SharkFileSize); err != nil {
 		return err
 	}
 

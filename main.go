@@ -5,11 +5,11 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/contractshark/vypie/api"
-	"github.com/contractshark/vypie/cli"
-	"github.com/contractshark/vypie/golang"
-	"github.com/contractshark/vypie/javascript"
-	"github.com/contractshark/vypie/language"
+	"github.com/contractshark/shark/api"
+	"github.com/contractshark/shark/cli"
+	"github.com/contractshark/shark/golang"
+	"github.com/contractshark/shark/javascript"
+	"github.com/contractshark/shark/language"
 	"github.com/fatih/color"
 )
 

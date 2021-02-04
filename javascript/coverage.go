@@ -9,9 +9,9 @@ import (
 	"os/exec"
 	"path/filepath"
 
-	"github.com/contractshark/vypie/api"
-	"github.com/contractshark/vypie/cli"
-	"github.com/contractshark/vypie/cov"
+	"github.com/contractshark/shark/api"
+	"github.com/contractshark/shark/cli"
+	"github.com/contractshark/shark/cov"
 )
 
 func coverage(packageJSON map[string]interface{}) error {
@@ -60,13 +60,13 @@ func coverage(packageJSON map[string]interface{}) error {
 
 	cli.Checkf("code coverage is %s\n", cli.Blue(str))
 
-	// create series
-	if err := api.CreateSeries(api.SeriesCoverage); err != nil {
+	// create shark
+	if err := api.CreateShark(api.SharkCoverage); err != nil {
 		return err
 	}
 
 	// post value
-	if err := api.Post(str, api.SeriesCoverage); err != nil {
+	if err := api.Post(str, api.SharkCoverage); err != nil {
 		return err
 	}
 

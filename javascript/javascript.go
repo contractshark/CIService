@@ -6,7 +6,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/contractshark/vypie/cli"
+	"github.com/contractshark/shark/cli"
 )
 
 // Run runs all JavaScript related stuff.

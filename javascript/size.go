@@ -3,9 +3,9 @@ package javascript
 import (
 	"fmt"
 
-	"github.com/contractshark/vypie/api"
-	"github.com/contractshark/vypie/cli"
-	"github.com/contractshark/vypie/size"
+	"github.com/contractshark/shark/api"
+	"github.com/contractshark/shark/cli"
+	"github.com/contractshark/shark/size"
 )
 
 func bundlesize() error {
@@ -17,13 +17,13 @@ func bundlesize() error {
 	str := fmt.Sprintf("%fK", s)
 	cli.Checkf("total size of \"build\" directory is %s\n", cli.Blue(str))
 
-	// create series
-	if err := api.CreateSeries(api.SeriesBundleSize); err != nil {
+	// create shark
+	if err := api.CreateShark(api.SharkBundleSize); err != nil {
 		return err
 	}
 
 	// post value
-	if err := api.Post(str, api.SeriesBundleSize); err != nil {
+	if err := api.Post(str, api.SharkBundleSize); err != nil {
 		return err
 	}
 

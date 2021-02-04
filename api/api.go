@@ -12,10 +12,10 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/contractshark/vypie/cli"
+	"github.com/contractshark/shark/cli"
 )
 
-// series names
+// shark names
 const (
 	ContractCoverage      = "coverage"
 	ContractFileSize      = "size"
@@ -28,7 +28,7 @@ const (
 	ContractKPI           = "kpi"
 )
 
-// Descriptions returns the description for a given series name.
+// Descriptions returns the description for a given shark name.
 var Descriptions = map[string]string{
 	ContractCoverage:      "Code coverage",
 	ContractFileSize:      "File size",
@@ -95,7 +95,7 @@ func Repo() (string, error) {
 
 // Post something.
 // currently only works with GitHub Actions.
-func Post(value, series string) error {
+func Post(value, shark string) error {
 	// get commit hash
 	s, err := sha()
 	if err != nil {
@@ -113,7 +113,7 @@ func Post(value, series string) error {
 		return err
 	}
 
-	u := fmt.Sprintf("https://contractshark.com/api/repos/%s/%s/combined", r, series)
+	u := fmt.Sprintf("https://contractshark.com/api/repos/%s/%s/combined", r, shark)
 	req, err := http.NewRequest(http.MethodPost, u, strings.NewReader(data.Encode()))
 	if err != nil {
 		return err
@@ -133,7 +133,7 @@ func Post(value, series string) error {
 		return err
 	}
 
-	cli.Checkf("post %s: status code: %s, body: %s\n", cli.Blue(series), cli.Blue(res.StatusCode), cli.Blue(string(body)))
+	cli.Checkf("post %s: status code: %s, body: %s\n", cli.Blue(shark), cli.Blue(res.StatusCode), cli.Blue(string(body)))
 
 	return nil
 }
@@ -144,13 +144,13 @@ type CreateContractRequest struct {
 	Description string `json:"description"`
 }
 
-// CreateContract creates a new series.
-func CreateContract(series string) error {
+// CreateContract creates a new shark.
+func CreateContract(shark string) error {
 
 	// create custom request
 	data := CreateContractRequest{
-		Name:        series,
-		Description: Descriptions[series],
+		Name:        shark,
+		Description: Descriptions[shark],
 	}
 
 	var b bytes.Buffer
@@ -164,7 +164,7 @@ func CreateContract(series string) error {
 		return err
 	}
 
-	u := fmt.Sprintf("https://contractshark.com/api/repos/%s/series", r)
+	u := fmt.Sprintf("https://contractshark.com/api/repos/%s/shark", r)
 	req, err := http.NewRequest(http.MethodPost, u, &b)
 	if err != nil {
 		return err
@@ -179,9 +179,9 @@ func CreateContract(series string) error {
 	defer res.Body.Close()
 
 	if res.StatusCode == http.StatusConflict {
-		cli.Checkf("series %s already exists\n", cli.Blue(series))
+		cli.Checkf("shark %s already exists\n", cli.Blue(shark))
 	} else {
-		cli.Checkf("series %s created\n", cli.Blue(series))
+		cli.Checkf("shark %s created\n", cli.Blue(shark))
 	}
 
 	return nil

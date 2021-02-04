@@ -18,10 +18,10 @@ var (
 
 // Checkln writes to standard output.
 func Checkln(a ...interface{}) {
-	fmt.Println(append([]interface{}{Green(check), "vypie:"}, a...)...)
+	fmt.Println(append([]interface{}{Green(check), "shark:"}, a...)...)
 }
 
 // Checkf formats according to a format specifier and writes to standard output.
 func Checkf(format string, a ...interface{}) {
-	fmt.Printf(Green(check)+" vypie: "+format, a...)
+	fmt.Printf(Green(check)+" shark: "+format, a...)
 }
