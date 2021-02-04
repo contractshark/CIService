@@ -17,28 +17,28 @@ import (
 
 // shark names
 const (
-	ContractCoverage      = "coverage"
-	ContractFileSize      = "size"
-	ContractTime          = "time"
-	ContractBundleSize    = "bundlesize"
-	ContractDependencies  = "dependencies"
-	ContractPerformance   = "performance"
-	ContractLint          = "lint conformnace"
-	ContractPractices     = "practices"
-	ContractKPI           = "kpi"
+	ContractCoverage     = "coverage"
+	ContractFileSize     = "size"
+	ContractTime         = "time"
+	ContractBundleSize   = "bundlesize"
+	ContractDependencies = "dependencies"
+	ContractPerformance  = "performance"
+	ContractLint         = "lint conformnace"
+	ContractPractices    = "practices"
+	ContractKPI          = "kpi"
 )
 
 // Descriptions returns the description for a given shark name.
 var Descriptions = map[string]string{
-	ContractCoverage:      "Code coverage",
-	ContractFileSize:      "File size",
-	ContractTime:          "Build time",
-	ContractBundleSize:    "Bundle size",
-	ContractDependencies:  "Number of dependencies",
-	ContractPerformance:   "CShark performance",
-	ContractLint:          "CShark conformance ",
-	ContractPractices:     "CShark best practices",
-	ContractKPI:           "CShark KPI",
+	ContractCoverage:     "Code coverage",
+	ContractFileSize:     "File size",
+	ContractTime:         "Build time",
+	ContractBundleSize:   "Bundle size",
+	ContractDependencies: "Number of dependencies",
+	ContractPerformance:  "CShark performance",
+	ContractLint:         "CShark conformance ",
+	ContractPractices:    "CShark best practices",
+	ContractKPI:          "CShark KPI",
 }
 
 // get sha depending on ci environment.
