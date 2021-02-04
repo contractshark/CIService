@@ -119,7 +119,7 @@ func Post(value, shark string) error {
 		return err
 	}
 
-	req.Header.Set("Authorization", fmt.Sprintf("Token %s", os.Getenv("SERIESCI_TOKEN")))
+	req.Header.Set("Authorization", fmt.Sprintf("Token %s", os.Getenv("CONTRACT_SHARK_TOKEN")))
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 
 	res, err := http.DefaultClient.Do(req)
@@ -169,7 +169,7 @@ func CreateContract(shark string) error {
 	if err != nil {
 		return err
 	}
-	req.Header.Set("Authorization", fmt.Sprintf("Token %s", os.Getenv("SERIESCI_TOKEN")))
+	req.Header.Set("Authorization", fmt.Sprintf("Token %s", os.Getenv("CONTRACT_SHARK_TOKEN")))
 
 	// send request
 	res, err := http.DefaultClient.Do(req)

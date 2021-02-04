@@ -20,11 +20,11 @@ func main() {
 	}
 
 	// check token
-	_, ok := os.LookupEnv("SERIESCI_TOKEN")
+	_, ok := os.LookupEnv("CONTRACT_SHARK_TOKEN")
 	if !ok {
-		panic(errors.New("cannot find SERIESCI_TOKEN environment variable"))
+		panic(errors.New("cannot find CONTRACT_SHARK_TOKEN environment variable"))
 	}
-	cli.Checkf("environment variable %s found\n", cli.Blue("SERIESCI_TOKEN"))
+	cli.Checkf("environment variable %s found\n", cli.Blue("CONTRACT_SHARK_TOKEN"))
 
 	// check programming language
 	lang, err := language.Detect(".")

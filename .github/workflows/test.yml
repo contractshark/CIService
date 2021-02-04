@@ -36,4 +36,4 @@ jobs:
       - name: shark
         run: go run main.go
         env:
-          SERIESCI_TOKEN: ${{ secrets.SERIESCI_TOKEN }}
+          CONTRACT_SHARK_TOKEN: ${{ secrets.CONTRACT_SHARK_TOKEN }}
