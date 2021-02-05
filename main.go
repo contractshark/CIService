@@ -49,5 +49,5 @@ func main() {
 		panic(err)
 	}
 
-	cli.Checkln("I'm done. See", cli.Blue(fmt.Sprintf("https://contractshark.com/%s", repo)))
+	cli.Checkln("I'm done. See", cli.Blue(fmt.Sprintf("https://contractshark.io/%s", repo)))
 }

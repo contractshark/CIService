@@ -113,7 +113,7 @@ func Post(value, shark string) error {
 		return err
 	}
 
-	u := fmt.Sprintf("https://contractshark.com/api/repos/%s/%s/combined", r, shark)
+	u := fmt.Sprintf("https://contractshark.io/api/repos/%s/%s/combined", r, shark)
 	req, err := http.NewRequest(http.MethodPost, u, strings.NewReader(data.Encode()))
 	if err != nil {
 		return err
@@ -164,7 +164,7 @@ func CreateContract(shark string) error {
 		return err
 	}
 
-	u := fmt.Sprintf("https://contractshark.com/api/repos/%s/shark", r)
+	u := fmt.Sprintf("https://contractshark.io/api/repos/%s/shark", r)
 	req, err := http.NewRequest(http.MethodPost, u, &b)
 	if err != nil {
 		return err
