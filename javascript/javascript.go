@@ -6,7 +6,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/contractshark/CIService/cli"
+	"github.com/contractshark/byzn/cli"
 )
 
 // Run runs all JavaScript related stuff.

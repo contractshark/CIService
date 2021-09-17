@@ -9,9 +9,9 @@ import (
 	"os"
 	"os/exec"
 
-	"github.com/contractshark/CIService/api"
-	"github.com/contractshark/CIService/cli"
-	"github.com/contractshark/CIService/lighthouse"
+	"github.com/contractshark/byzn/api"
+	"github.com/contractshark/byzn/cli"
+	"github.com/contractshark/byzn/lighthouse"
 )
 
 func runLighthouse() error {
@@ -66,37 +66,37 @@ func runLighthouse() error {
 
 	performance := fmt.Sprintf("%.2f%%", report.Categories.Performance.Score*100)
 	cli.Checkf("lighthouse performance is %s\n", cli.Blue(performance))
-	if err := api.CreateShark(api.SharkPerformance); err != nil {
+	if err := api.CreateByzn(api.ByznPerformance); err != nil {
 		return err
 	}
-	if err := api.Post(performance, api.SharkPerformance); err != nil {
+	if err := api.Post(performance, api.ByznPerformance); err != nil {
 		return err
 	}
 
 	accessibility := fmt.Sprintf("%.2f%%", report.Categories.Accessibility.Score*100)
 	cli.Checkf("lighthouse accessibility is %s\n", cli.Blue(accessibility))
-	if err := api.CreateShark(api.SharkAccessibility); err != nil {
+	if err := api.CreateByzn(api.ByznAccessibility); err != nil {
 		return err
 	}
-	if err := api.Post(accessibility, api.SharkAccessibility); err != nil {
+	if err := api.Post(accessibility, api.ByznAccessibility); err != nil {
 		return err
 	}
 
 	bestPractices := fmt.Sprintf("%.2f%%", report.Categories.BestPractices.Score*100)
 	cli.Checkf("lighthouse best practices is %s\n", cli.Blue(bestPractices))
-	if err := api.CreateShark(api.SharkPractices); err != nil {
+	if err := api.CreateByzn(api.ByznPractices); err != nil {
 		return err
 	}
-	if err := api.Post(bestPractices, api.SharkPractices); err != nil {
+	if err := api.Post(bestPractices, api.ByznPractices); err != nil {
 		return err
 	}
 
 	seo := fmt.Sprintf("%.2f%%", report.Categories.Seo.Score*100)
 	cli.Checkf("lighthouse seo is %s\n", cli.Blue(seo))
-	if err := api.CreateShark(api.SharkSEO); err != nil {
+	if err := api.CreateByzn(api.ByznSEO); err != nil {
 		return err
 	}
-	if err := api.Post(seo, api.SharkSEO); err != nil {
+	if err := api.Post(seo, api.ByznSEO); err != nil {
 		return err
 	}
 

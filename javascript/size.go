@@ -3,9 +3,9 @@ package javascript
 import (
 	"fmt"
 
-	"github.com/contractshark/CIService/api"
-	"github.com/contractshark/CIService/cli"
-	"github.com/contractshark/CIService/size"
+	"github.com/contractshark/byzn/api"
+	"github.com/contractshark/byzn/cli"
+	"github.com/contractshark/byzn/size"
 )
 
 func bundlesize() error {
@@ -17,13 +17,13 @@ func bundlesize() error {
 	str := fmt.Sprintf("%fK", s)
 	cli.Checkf("total size of \"build\" directory is %s\n", cli.Blue(str))
 
-	// create shark
-	if err := api.CreateShark(api.SharkBundleSize); err != nil {
+	// create series
+	if err := api.CreateByzn(api.ByznBundleSize); err != nil {
 		return err
 	}
 
 	// post value
-	if err := api.Post(str, api.SharkBundleSize); err != nil {
+	if err := api.Post(str, api.ByznBundleSize); err != nil {
 		return err
 	}
 

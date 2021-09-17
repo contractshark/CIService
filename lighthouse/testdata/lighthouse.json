@@ -2156,7 +2156,9 @@
     }
   },
   "configSettings": {
-    "output": ["json"],
+    "output": [
+      "json"
+    ],
     "maxWaitForFcp": 30000,
     "maxWaitForLoad": 45000,
     "throttlingMethod": "simulate",
@@ -4510,7 +4512,9 @@
       "lighthouse-core/audits/works-offline.js | description": [
         "audits[works-offline].description"
       ],
-      "lighthouse-core/audits/viewport.js | title": ["audits.viewport.title"],
+      "lighthouse-core/audits/viewport.js | title": [
+        "audits.viewport.title"
+      ],
       "lighthouse-core/audits/viewport.js | description": [
         "audits.viewport.description"
       ],
@@ -4690,7 +4694,9 @@
           "path": "audits[critical-request-chains].displayValue"
         }
       ],
-      "lighthouse-core/audits/redirects.js | title": ["audits.redirects.title"],
+      "lighthouse-core/audits/redirects.js | title": [
+        "audits.redirects.title"
+      ],
       "lighthouse-core/audits/redirects.js | description": [
         "audits.redirects.description"
       ],
@@ -5408,7 +5414,9 @@
       "lighthouse-core/audits/seo/hreflang.js | description": [
         "audits.hreflang.description"
       ],
-      "lighthouse-core/audits/seo/plugins.js | title": ["audits.plugins.title"],
+      "lighthouse-core/audits/seo/plugins.js | title": [
+        "audits.plugins.title"
+      ],
       "lighthouse-core/audits/seo/plugins.js | description": [
         "audits.plugins.description"
       ],

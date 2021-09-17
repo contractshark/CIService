@@ -4,8 +4,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/contractshark/CIService/api"
-	"github.com/contractshark/CIService/cli"
+	"github.com/contractshark/byzn/api"
+	"github.com/contractshark/byzn/cli"
 )
 
 func dependencies(packageJSON map[string]interface{}) error {
@@ -16,12 +16,12 @@ func dependencies(packageJSON map[string]interface{}) error {
 
 	cli.Checkf("%s dependencies found\n", cli.Blue(len(dependencies)))
 
-	// create shark
-	if err := api.CreateShark(api.SharkDependencies); err != nil {
+	// create series
+	if err := api.CreateByzn(api.ByznDependencies); err != nil {
 		return err
 	}
 
-	if err := api.Post(fmt.Sprintf("%d", len(dependencies)), api.SharkDependencies); err != nil {
+	if err := api.Post(fmt.Sprintf("%d", len(dependencies)), api.ByznDependencies); err != nil {
 		return err
 	}
 

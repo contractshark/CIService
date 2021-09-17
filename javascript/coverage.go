@@ -9,9 +9,9 @@ import (
 	"os/exec"
 	"path/filepath"
 
-	"github.com/contractshark/CIService/api"
-	"github.com/contractshark/CIService/cli"
-	"github.com/contractshark/CIService/clover"
+	"github.com/contractshark/byzn/api"
+	"github.com/contractshark/byzn/cli"
+	"github.com/contractshark/byzn/cov"
 )
 
 func coverage(packageJSON map[string]interface{}) error {
@@ -60,13 +60,13 @@ func coverage(packageJSON map[string]interface{}) error {
 
 	cli.Checkf("code coverage is %s\n", cli.Blue(str))
 
-	// create shark
-	if err := api.CreateShark(api.SharkCoverage); err != nil {
+	// create series
+	if err := api.CreateByzn(api.ByznCoverage); err != nil {
 		return err
 	}
 
 	// post value
-	if err := api.Post(str, api.SharkCoverage); err != nil {
+	if err := api.Post(str, api.ByznCoverage); err != nil {
 		return err
 	}
 

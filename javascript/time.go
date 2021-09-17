@@ -5,8 +5,8 @@ import (
 	"os/exec"
 	"time"
 
-	"github.com/contractshark/CIService/api"
-	"github.com/contractshark/CIService/cli"
+	"github.com/contractshark/byzn/api"
+	"github.com/contractshark/byzn/cli"
 )
 
 func duration() error {
@@ -23,13 +23,13 @@ func duration() error {
 
 	cli.Checkf("build took %s\n", cli.Blue(elapsed))
 
-	// create shark
-	if err := api.CreateShark(api.SharkTime); err != nil {
+	// create series
+	if err := api.CreateByzn(api.ByznTime); err != nil {
 		return err
 	}
 
 	// post value
-	if err := api.Post(elapsed.String(), api.SharkTime); err != nil {
+	if err := api.Post(elapsed.String(), api.ByznTime); err != nil {
 		return err
 	}
 

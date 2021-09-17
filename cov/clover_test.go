@@ -1,4 +1,4 @@
-package clover
+package cov
 
 import (
 	"path/filepath"

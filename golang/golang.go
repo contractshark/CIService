@@ -7,8 +7,8 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/contractshark/CIService/api"
-	"github.com/contractshark/CIService/cli"
+	"github.com/contractshark/byzn/api"
+	"github.com/contractshark/byzn/cli"
 )
 
 // Run runs all Go related stuff.
@@ -70,12 +70,12 @@ func Run() error {
 
 	cli.Checkln("total coverage (statements) is", cli.Blue(total))
 
-	// create shark
-	if err := api.CreateShark(api.SharkCoverage); err != nil {
+	// create series
+	if err := api.CreateByzn(api.ByznCoverage); err != nil {
 		return err
 	}
 
-	if err := api.Post(total, api.SharkCoverage); err != nil {
+	if err := api.Post(total, api.ByznCoverage); err != nil {
 		return err
 	}
 
@@ -83,7 +83,7 @@ func Run() error {
 	buildArgs := []string{
 		"build",
 		"-o",
-		"binary_by_contractshark",
+		"binary_by_seriesci",
 	}
 	buildCmd := exec.Command("go", buildArgs...)
 	buildCmd.Stdout = os.Stdout
@@ -92,9 +92,9 @@ func Run() error {
 		return err
 	}
 
-	cli.Checkf("binary %s built\n", cli.Blue("binary_by_contractshark"))
+	cli.Checkf("binary %s built\n", cli.Blue("binary_by_seriesci"))
 
-	info, err := os.Stat("binary_by_contractshark")
+	info, err := os.Stat("binary_by_seriesci")
 	if err != nil {
 		return err
 	}
@@ -102,12 +102,12 @@ func Run() error {
 	size := fmt.Sprintf("%.2fMB", float64(info.Size())/1000/1000)
 	cli.Checkln("binary file size is", cli.Blue(size))
 
-	// create shark
-	if err := api.CreateShark(api.SharkFileSize); err != nil {
+	// create series
+	if err := api.CreateByzn(api.ByznFileSize); err != nil {
 		return err
 	}
 
-	if err := api.Post(size, api.SharkFileSize); err != nil {
+	if err := api.Post(size, api.ByznFileSize); err != nil {
 		return err
 	}
 

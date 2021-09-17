@@ -12,33 +12,33 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/contractshark/CIService/cli"
+	"github.com/contractshark/byzn/cli"
 )
 
-// shark names
+// series names
 const (
-	ContractCoverage     = "coverage"
-	ContractFileSize     = "size"
-	ContractTime         = "time"
-	ContractBundleSize   = "bundlesize"
-	ContractDependencies = "dependencies"
-	ContractPerformance  = "performance"
-	ContractLint         = "lint conformnace"
-	ContractPractices    = "practices"
-	ContractKPI          = "kpi"
+	ByznCoverage      = "coverage"
+	ByznFileSize      = "size"
+	ByznTime          = "time"
+	ByznBundleSize    = "bundlesize"
+	ByznDependencies  = "dependencies"
+	ByznPerformance   = "performance"
+	ByznAccessibility = "accessibility"
+	ByznPractices     = "practices"
+	ByznSEO           = "seo"
 )
 
-// Descriptions returns the description for a given shark name.
+// Descriptions returns the description for a given series name.
 var Descriptions = map[string]string{
-	ContractCoverage:     "Code coverage",
-	ContractFileSize:     "File size",
-	ContractTime:         "Build time",
-	ContractBundleSize:   "Bundle size",
-	ContractDependencies: "Number of dependencies",
-	ContractPerformance:  "CShark performance",
-	ContractLint:         "CShark conformance ",
-	ContractPractices:    "CShark best practices",
-	ContractKPI:          "CShark KPI",
+	ByznCoverage:      "Code coverage",
+	ByznFileSize:      "File size",
+	ByznTime:          "Build time",
+	ByznBundleSize:    "Bundle size",
+	ByznDependencies:  "Number of dependencies",
+	ByznPerformance:   "Lighthouse performance",
+	ByznAccessibility: "Lighthouse accessibility",
+	ByznPractices:     "Lighthouse best practices",
+	ByznSEO:           "Lighthouse SEO",
 }
 
 // get sha depending on ci environment.
@@ -95,7 +95,7 @@ func Repo() (string, error) {
 
 // Post something.
 // currently only works with GitHub Actions.
-func Post(value, shark string) error {
+func Post(value, series string) error {
 	// get commit hash
 	s, err := sha()
 	if err != nil {
@@ -113,13 +113,13 @@ func Post(value, shark string) error {
 		return err
 	}
 
-	u := fmt.Sprintf("https://contractshark.io/api/repos/%s/%s/combined", r, shark)
+	u := fmt.Sprintf("https://seriesci.com/api/repos/%s/%s/combined", r, series)
 	req, err := http.NewRequest(http.MethodPost, u, strings.NewReader(data.Encode()))
 	if err != nil {
 		return err
 	}
 
-	req.Header.Set("Authorization", fmt.Sprintf("Token %s", os.Getenv("CONTRACT_SHARK_TOKEN")))
+	req.Header.Set("Authorization", fmt.Sprintf("Token %s", os.Getenv("SERIESCI_TOKEN")))
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 
 	res, err := http.DefaultClient.Do(req)
@@ -133,24 +133,24 @@ func Post(value, shark string) error {
 		return err
 	}
 
-	cli.Checkf("post %s: status code: %s, body: %s\n", cli.Blue(shark), cli.Blue(res.StatusCode), cli.Blue(string(body)))
+	cli.Checkf("post %s: status code: %s, body: %s\n", cli.Blue(series), cli.Blue(res.StatusCode), cli.Blue(string(body)))
 
 	return nil
 }
 
-// CreateContractRequest request
-type CreateContractRequest struct {
+// CreateByznRequest request
+type CreateByznRequest struct {
 	Name        string `json:"name"`
 	Description string `json:"description"`
 }
 
-// CreateContract creates a new shark.
-func CreateContract(shark string) error {
+// CreateByzn creates a new series.
+func CreateByzn(series string) error {
 
 	// create custom request
-	data := CreateContractRequest{
-		Name:        shark,
-		Description: Descriptions[shark],
+	data := CreateByznRequest{
+		Name:        series,
+		Description: Descriptions[series],
 	}
 
 	var b bytes.Buffer
@@ -164,12 +164,12 @@ func CreateContract(shark string) error {
 		return err
 	}
 
-	u := fmt.Sprintf("https://contractshark.io/api/repos/%s/shark", r)
+	u := fmt.Sprintf("https://seriesci.com/api/repos/%s/series", r)
 	req, err := http.NewRequest(http.MethodPost, u, &b)
 	if err != nil {
 		return err
 	}
-	req.Header.Set("Authorization", fmt.Sprintf("Token %s", os.Getenv("CONTRACT_SHARK_TOKEN")))
+	req.Header.Set("Authorization", fmt.Sprintf("Token %s", os.Getenv("SERIESCI_TOKEN")))
 
 	// send request
 	res, err := http.DefaultClient.Do(req)
@@ -179,9 +179,9 @@ func CreateContract(shark string) error {
 	defer res.Body.Close()
 
 	if res.StatusCode == http.StatusConflict {
-		cli.Checkf("shark %s already exists\n", cli.Blue(shark))
+		cli.Checkf("series %s already exists\n", cli.Blue(series))
 	} else {
-		cli.Checkf("shark %s created\n", cli.Blue(shark))
+		cli.Checkf("series %s created\n", cli.Blue(series))
 	}
 
 	return nil

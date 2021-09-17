@@ -5,11 +5,11 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/contractshark/CIService/api"
-	"github.com/contractshark/CIService/cli"
-	"github.com/contractshark/CIService/golang"
-	"github.com/contractshark/CIService/javascript"
-	"github.com/contractshark/CIService/language"
+	"github.com/contractshark/byzn/api"
+	"github.com/contractshark/byzn/cli"
+	"github.com/contractshark/byzn/golang"
+	"github.com/contractshark/byzn/javascript"
+	"github.com/contractshark/byzn/language"
 	"github.com/fatih/color"
 )
 
@@ -20,11 +20,11 @@ func main() {
 	}
 
 	// check token
-	_, ok := os.LookupEnv("CONTRACT_SHARK_TOKEN")
+	_, ok := os.LookupEnv("SERIESCI_TOKEN")
 	if !ok {
-		panic(errors.New("cannot find CONTRACT_SHARK_TOKEN environment variable"))
+		panic(errors.New("cannot find SERIESCI_TOKEN environment variable"))
 	}
-	cli.Checkf("environment variable %s found\n", cli.Blue("CONTRACT_SHARK_TOKEN"))
+	cli.Checkf("environment variable %s found\n", cli.Blue("SERIESCI_TOKEN"))
 
 	// check programming language
 	lang, err := language.Detect(".")
@@ -49,5 +49,5 @@ func main() {
 		panic(err)
 	}
 
-	cli.Checkln("I'm done. See", cli.Blue(fmt.Sprintf("https://contractshark.io/%s", repo)))
+	cli.Checkln("I'm done. See", cli.Blue(fmt.Sprintf("https://seriesci.com/%s", repo)))
 }
