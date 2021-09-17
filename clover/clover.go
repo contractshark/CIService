@@ -1,4 +1,4 @@
-package cov
+package clover
 
 import (
 	"encoding/xml"

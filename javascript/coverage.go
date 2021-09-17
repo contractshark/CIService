@@ -11,7 +11,7 @@ import (
 
 	"github.com/contractshark/CIService/api"
 	"github.com/contractshark/CIService/cli"
-	"github.com/contractshark/CIService/cov"
+	"github.com/contractshark/CIService/clover"
 )
 
 func coverage(packageJSON map[string]interface{}) error {
