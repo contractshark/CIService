@@ -12,7 +12,7 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/contractshark/shark/cli"
+	"github.com/contractshark/CIService/cli"
 )
 
 // shark names
