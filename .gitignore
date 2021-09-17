@@ -6,3 +6,7 @@
 /lighthouse.json
 /package-lock.json
 /package.json
+vendor/
+dist/
+.DS_Store
+!vendor/.gitkeep

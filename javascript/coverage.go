@@ -9,9 +9,9 @@ import (
 	"os/exec"
 	"path/filepath"
 
-	"github.com/contractshark/shark/api"
-	"github.com/contractshark/shark/cli"
-	"github.com/contractshark/shark/cov"
+	"github.com/contractshark/CIService/api"
+	"github.com/contractshark/CIService/cli"
+	"github.com/contractshark/CIService/cov"
 )
 
 func coverage(packageJSON map[string]interface{}) error {

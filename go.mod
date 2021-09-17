@@ -1,4 +1,4 @@
-module github.com/contractshark/shark
+module github.com/contractshark/CIService
 
 go 1.13
 

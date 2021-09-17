@@ -7,8 +7,8 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/contractshark/shark/api"
-	"github.com/contractshark/shark/cli"
+	"github.com/contractshark/CIService/api"
+	"github.com/contractshark/CIService/cli"
 )
 
 // Run runs all Go related stuff.

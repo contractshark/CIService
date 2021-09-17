@@ -4,8 +4,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/contractshark/shark/api"
-	"github.com/contractshark/shark/cli"
+	"github.com/contractshark/CIService/api"
+	"github.com/contractshark/CIService/cli"
 )
 
 func dependencies(packageJSON map[string]interface{}) error {

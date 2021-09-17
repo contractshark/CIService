@@ -5,11 +5,11 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/contractshark/shark/api"
-	"github.com/contractshark/shark/cli"
-	"github.com/contractshark/shark/golang"
-	"github.com/contractshark/shark/javascript"
-	"github.com/contractshark/shark/language"
+	"github.com/contractshark/CIService/api"
+	"github.com/contractshark/CIService/cli"
+	"github.com/contractshark/CIService/golang"
+	"github.com/contractshark/CIService/javascript"
+	"github.com/contractshark/CIService/language"
 	"github.com/fatih/color"
 )
 

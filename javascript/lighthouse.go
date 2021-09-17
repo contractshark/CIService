@@ -9,9 +9,9 @@ import (
 	"os"
 	"os/exec"
 
-	"github.com/contractshark/shark/api"
-	"github.com/contractshark/shark/cli"
-	"github.com/contractshark/shark/lighthouse"
+	"github.com/contractshark/CIService/api"
+	"github.com/contractshark/CIService/cli"
+	"github.com/contractshark/CIService/lighthouse"
 )
 
 func runLighthouse() error {
